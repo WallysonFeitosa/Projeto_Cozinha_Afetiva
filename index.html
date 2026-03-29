@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozinha Pet Afetiva - Alimentação Natural</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body id="inicio">
+
+    <!-- 1° Header -->
+    <header>
+        <nav>
+            <div class="logo-container">
+                <div class="logo">Cozinha Pet _Afetiva</div>
+                <div class="logo-image"> <img src="img/logo.avif" alt=""></div>
+            </div>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#como-funciona">Como Funciona</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 2° Seção: Apresentação -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Alimentação 100% <span class="highlight">Natural para o seu Pet</span></h1>
+            <p>Comida de verdade, balanceada e feita com muito amor. Proporcione mais saúde, vitalidade e alegria para o seu melhor amigo todos os dias.</p>
+            <div class="hero-buttons">
+                <button id="btnOrcamento" class="btn btn-primary">Faça seu orçamento</button>
+                <a href="#produtos" class="btn btn-secondary">Ver produtos</a>
+            </div>
+        </div>
+        <div class="hero-image-placeholder">
+            <img src="img/dog1.jpg" alt="Apresentação da Cozinha Pet">
+        </div>
+    </section>
+
+    <!-- 3° Seção: Como Funciona -->
+    <section id="como-funciona">
+        <h2>Como funciona nosso orçamento?</h2>
+        <div class="passos-grid">
+            <div class="passo-card">
+                <h3>1. Avaliação</h3>
+                <p>Nos conte sobre o seu pet: peso, idade, restrições e preferências.</p>
+            </div>
+            <div class="passo-card">
+                <h3>2. Cardápio</h3>
+                <p>Nossa equipe monta as porções ideais e calcula o valor do pacote.</p>
+            </div>
+            <div class="passo-card">
+                <h3>3. Entrega Fresquinha</h3>
+                <p>Aprovando o orçamento, preparamos e entregamos direto na sua porta!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4° Seção: Mais sobre nós -->
+    <section>
+        <h2>Por que escolher a Cozinha Pet Afetiva?</h2>
+        <div class="diferenciais-grid">
+            <div class="diferencial-card">Ingredientes Naturais</div>
+            <div class="diferencial-card">Feito com Amor</div>
+            <div class="diferencial-card">Nutricionalmente Balanceado</div>
+            <div class="diferencial-card">Qualidade Premium</div>
+            <div class="diferencial-card">Sempre Fresco</div>
+            <div class="diferencial-card">Pets Mais Felizes</div>
+        </div>
+    </section>
+
+    <!-- 5° Seção: Produtos -->
+    <section id="produtos">
+        <h2>Nossas Porções</h2>
+        <div class="produtos-grid">
+            <div class="produto-card">
+                <div class="produto-img-placeholder"><img src="img/dog_p1.jpg" alt=""></div>
+                <div class="produto-info">
+                    <h3>Porção Pequena</h3>
+                    <p>Ideal para cães de pequeno porte e gatos. Embalagens práticas.</p>
+                </div>
+            </div>
+            <div class="produto-card">
+                <div class="produto-img-placeholder"><img src="img/cat_p2.jpg" alt=""></div>
+                <div class="produto-info">
+                    <h3>Porção Média</h3>
+                    <p>Feita sob medida para atender as necessidades de pets de médio porte.</p>
+                </div>
+            </div>
+            <div class="produto-card">
+                <div class="produto-img-placeholder"><img src="img/receita.jpg" alt=""></div>
+                <div class="produto-info">
+                    <h3>Porção Grande</h3>
+                    <p>A quantidade e a energia perfeitas para cães de grande porte.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6° Seção: Footer -->
+    <footer id="contato">
+        <div class="footer-content">
+            <div>
+                <h3>Contato</h3>
+                <p>WhatsApp: (11) 99999-9999</p>
+                <p>Email: contato@cozinhapet.com.br</p>
+            </div>
+            <div>
+                <h3>Redes Sociais</h3>
+                <a href="https://www.instagram.com/cozinhapetafetiva/" target="_blank"> <img src="img/instagram.png" alt="">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Orçamento -->
+    <div id="modalOrcamento" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Faça seu Orçamento</h2>
+
+            <form id="formOrcamento">
+                <!-- Passo 1: Tutor -->
+                <div class="step step-1 active">
+                    <h3>1. Informações do Tutor</h3>
+                    <input type="text" id="tutorNome" placeholder="Nome Completo" required>
+                    <input type="tel" id="tutorTelefone" placeholder="WhatsApp" required>
+                    <input type="email" id="tutorEmail" placeholder="E-mail (Opcional)">
+                    <button type="button" class="btn btn-primary next-step" style="width: 100%;">Próximo</button>
+                </div>
+
+                <!-- Passo 2: Pet -->
+                <div class="step step-2">
+                    <h3>2. Informações do Pet</h3>
+                    <input type="text" id="petNome" placeholder="Nome do Pet" required>
+                    <select id="petRaca" required>
+                        <option value="">Raça do Pet</option>
+                        <option value="SRD">SRD (Sem Raça Definida)</option>
+                        <option value="Pug">Pug</option>
+                        <option value="Shih Tzu">Shih Tzu</option>
+                        <option value="Golden Retriever">Golden Retriever</option>
+                        <option value="Outra">Outra Raça</option>
+                    </select>
+                    <input type="number" id="petIdade" placeholder="Idade (em anos, Ex: 3)" step="0.5" required>
+                    <input type="number" id="petPeso" placeholder="Peso em kg (Ex: 5.5)" step="0.1" required>
+                    <select id="petGenero">
+                        <option value="">Gênero (Opcional)</option>
+                        <option value="Macho">Macho</option>
+                        <option value="Fêmea">Fêmea</option>
+                    </select>
+                    <select id="petExperiencia">
+                        <option value="">Experiência com Alimentação Natural (Opcional)</option>
+                        <option value="Nenhuma">Nunca comeu</option>
+                        <option value="Já comeu">Já comeu / Come atualmente</option>
+                    </select>
+                    <div class="modal-buttons">
+                        <button type="button" class="btn btn-secondary prev-step">Voltar</button>
+                        <button type="button" class="btn btn-primary next-step">Próximo</button>
+                    </div>
+                </div>
+
+                <!-- Passo 3: Saúde -->
+                <div class="step step-3">
+                    <h3>3. Saúde do Pet</h3>
+                    <select id="petSaude" required>
+                        <option value="">Condições de saúde específicas?</option>
+                        <option value="Nenhuma">Nenhuma (Saudável)</option>
+                        <option value="Alergia">Alergia / Problemas de pele</option>
+                        <option value="Renal">Problema Renal</option>
+                        <option value="Gastro">Sensibilidade Gastrointestinal</option>
+                        <option value="Outra">Outra condição</option>
+                    </select>
+                    <select id="petStatusPeso" required>
+                        <option value="">Status de peso atual</option>
+                        <option value="Ideal">Peso Ideal</option>
+                        <option value="Abaixo">Abaixo do peso</option>
+                        <option value="Acima">Acima do peso (Sobrepeso/Obesidade)</option>
+                    </select>
+                    <div class="modal-buttons">
+                        <button type="button" class="btn btn-secondary prev-step">Voltar</button>
+                        <button type="button" class="btn btn-primary next-step">Próximo</button>
+                    </div>
+                </div>
+
+                <!-- Passo 4: Fechamento -->
+                <div class="step step-4">
+                    <h3>4. Fechamento do Pedido</h3>
+                    <select id="petVolume" required>
+                        <option value="">Dias do Pacote</option>
+                        <option value="7">Pacote de 7 dias</option>
+                        <option value="15">Pacote de 15 dias</option>
+                        <option value="30">Pacote de 30 dias</option>
+                    </select>
+                    <input type="number" id="petRefeicoes" placeholder="Refeições por dia (Ex: 2)" required min="1">
+                    <select id="freteRegiao" required>
+                        <option value="">Região de Entrega</option>
+                        <option value="10">Até 5 km (R$ 10,00)</option>
+                        <option value="15">Até 10 km (R$ 15,00)</option>
+                        <option value="20">Até 15 km (R$ 20,00)</option>
+                        <option value="25">Até 20 km (R$ 25,00)</option>
+                        <option value="0">Acima de 20 km (Frete sob consulta)</option>
+                    </select>
+                    <select id="pagamentoForma" required>
+                        <option value="">Forma de Pagamento</option>
+                        <option value="PIX">PIX</option>
+                        <option value="Cartão">Cartão de Crédito/Débito</option>
+                    </select>
+                    <div class="modal-buttons">
+                        <button type="button" class="btn btn-secondary prev-step">Voltar</button>
+                        <button type="submit" class="btn btn-primary">Finalizar Orçamento</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Tela de Resultado -->
+            <div id="resultadoOrcamento" style="display: none; text-align: center;">
+                <h3 style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 15px;">Orçamento Gerado!</h3>
+                <div id="resDetalhes" style="background: #f9f9f9; padding: 15px; border-radius: 8px; text-align: left; margin-bottom: 20px;"></div>
+                <h2 id="resValor" style="font-size: 2rem; color: #333; margin-bottom: 20px;"></h2>
+                <a href="https://wa.me/5581984489552?text=gostaria%20de%20finalizar%20o%20%20meu%20plano" target="_blank" class="btn btn-primary" style="width: 100%; display: block; box-sizing: border-box;" onclick="closeModal()">Concluir e entrar em contato</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
