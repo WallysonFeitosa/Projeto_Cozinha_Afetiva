@@ -1,0 +1,478 @@
+{
+    "ponto_focal": "Torre, Recife - PE",
+    "unidade": "km",
+    "tipo_distancia": "Raio (linha reta)",
+    "total_bairros": 94,
+    "bairros": [
+        {
+            "bairro": "Torre",
+            "distancia_km": 0.0,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Zumbi",
+            "distancia_km": 0.8,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Madalena",
+            "distancia_km": 1.2,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Prado",
+            "distancia_km": 1.5,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Ilha do Retiro",
+            "distancia_km": 1.8,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Graças",
+            "distancia_km": 1.9,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Cordeiro",
+            "distancia_km": 2.0,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Espinheiro",
+            "distancia_km": 2.5,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Aflitos",
+            "distancia_km": 2.6,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Parnamirim",
+            "distancia_km": 2.8,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Derby",
+            "distancia_km": 2.9,
+            "zona": "Centro"
+        },
+        {
+            "bairro": "Casa Forte",
+            "distancia_km": 3.1,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Boa Vista",
+            "distancia_km": 3.2,
+            "zona": "Centro"
+        },
+        {
+            "bairro": "Iputinga",
+            "distancia_km": 3.3,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Afogados",
+            "distancia_km": 3.5,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Paissandu",
+            "distancia_km": 3.6,
+            "zona": "Centro"
+        },
+        {
+            "bairro": "Tamarineira",
+            "distancia_km": 3.7,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Santo Amaro",
+            "distancia_km": 3.8,
+            "zona": "Centro"
+        },
+        {
+            "bairro": "Rosarinho",
+            "distancia_km": 3.9,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Santana",
+            "distancia_km": 4.0,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Poço da Panela",
+            "distancia_km": 4.1,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Jaqueira",
+            "distancia_km": 4.2,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Encruzilhada",
+            "distancia_km": 4.3,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Recife (Bairro do Recife)",
+            "distancia_km": 4.5,
+            "zona": "Centro"
+        },
+        {
+            "bairro": "São José",
+            "distancia_km": 4.6,
+            "zona": "Centro"
+        },
+        {
+            "bairro": "Santo Antônio",
+            "distancia_km": 4.7,
+            "zona": "Centro"
+        },
+        {
+            "bairro": "Cidade Universitária",
+            "distancia_km": 4.8,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Caiara",
+            "distancia_km": 4.9,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Engenho do Meio",
+            "distancia_km": 5.0,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Hipódromo",
+            "distancia_km": 5.1,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Beberibe",
+            "distancia_km": 5.2,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "San Martin",
+            "distancia_km": 5.3,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Casa Amarela",
+            "distancia_km": 5.4,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Arruda",
+            "distancia_km": 5.5,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Mustardinha",
+            "distancia_km": 5.6,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Mangueira",
+            "distancia_km": 5.7,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Areias",
+            "distancia_km": 5.8,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Cabanga",
+            "distancia_km": 5.9,
+            "zona": "Sul"
+        },
+        {
+            "bairro": "Imbiribeira",
+            "distancia_km": 6.0,
+            "zona": "Sul"
+        },
+        {
+            "bairro": "Cajueiro",
+            "distancia_km": 6.1,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Ponto de Parada",
+            "distancia_km": 6.2,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Bonji",
+            "distancia_km": 6.3,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Coelhos",
+            "distancia_km": 6.4,
+            "zona": "Centro"
+        },
+        {
+            "bairro": "Dois Irmãos",
+            "distancia_km": 6.5,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Bongi",
+            "distancia_km": 6.6,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Pina",
+            "distancia_km": 6.8,
+            "zona": "Sul"
+        },
+        {
+            "bairro": "Fundão",
+            "distancia_km": 6.9,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Campina do Barreto",
+            "distancia_km": 7.0,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Várzea",
+            "distancia_km": 7.2,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Ipsep",
+            "distancia_km": 7.3,
+            "zona": "Sul"
+        },
+        {
+            "bairro": "Jardim São Paulo",
+            "distancia_km": 7.5,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Estância",
+            "distancia_km": 7.7,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Caçote",
+            "distancia_km": 7.8,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Peixinhos",
+            "distancia_km": 7.9,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Linha do Tiro",
+            "distancia_km": 8.0,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Alto José do Pinho",
+            "distancia_km": 8.1,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Alto José Bonifácio",
+            "distancia_km": 8.2,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Nova Descoberta",
+            "distancia_km": 8.3,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Vasco da Gama",
+            "distancia_km": 8.4,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Ibura",
+            "distancia_km": 8.5,
+            "zona": "Sul"
+        },
+        {
+            "bairro": "Macaxeira",
+            "distancia_km": 8.6,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Apipucos",
+            "distancia_km": 8.7,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Sitio dos Pintos",
+            "distancia_km": 8.8,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Buraquinho",
+            "distancia_km": 8.9,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Bomba do Hemetério",
+            "distancia_km": 9.0,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Boa Viagem",
+            "distancia_km": 9.2,
+            "zona": "Sul"
+        },
+        {
+            "bairro": "Água Fria",
+            "distancia_km": 9.3,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Alto Santa Terezinha",
+            "distancia_km": 9.4,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Jordão",
+            "distancia_km": 9.5,
+            "zona": "Sul"
+        },
+        {
+            "bairro": "Zumbi do Pacheco",
+            "distancia_km": 9.6,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Barro",
+            "distancia_km": 9.7,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Tejipió",
+            "distancia_km": 9.8,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Coqueiral",
+            "distancia_km": 9.9,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Totó",
+            "distancia_km": 10.1,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Sancho",
+            "distancia_km": 10.2,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Curado",
+            "distancia_km": 10.5,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Jiquiá",
+            "distancia_km": 10.6,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Mangueira",
+            "distancia_km": 10.7,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Guabiraba",
+            "distancia_km": 11.0,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Pau-Ferro",
+            "distancia_km": 11.2,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Brejo da Guabiraba",
+            "distancia_km": 11.4,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Passarinho",
+            "distancia_km": 11.6,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Dois Unidos",
+            "distancia_km": 11.8,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Córrego do Jenipapo",
+            "distancia_km": 12.0,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Alto do Mandu",
+            "distancia_km": 12.2,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Morro da Conceição",
+            "distancia_km": 12.4,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Brejo de Beberibe",
+            "distancia_km": 12.6,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Porto Madeira",
+            "distancia_km": 12.8,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Bomba do Hemetério",
+            "distancia_km": 13.0,
+            "zona": "Norte"
+        },
+        {
+            "bairro": "Sítio do Berardo",
+            "distancia_km": 1.1,
+            "zona": "Oeste"
+        },
+        {
+            "bairro": "Ilha do Leite",
+            "distancia_km": 3.4,
+            "zona": "Centro"
+        },
+        {
+            "bairro": "Soledade",
+            "distancia_km": 3.0,
+            "zona": "Centro"
+        },
+        {
+            "bairro": "Paissandu",
+            "distancia_km": 3.5,
+            "zona": "Centro"
+        },
+        {
+            "bairro": "Ilha Joana Bezerra",
+            "distancia_km": 4.2,
+            "zona": "Centro"
+        }
+    ]
+}
