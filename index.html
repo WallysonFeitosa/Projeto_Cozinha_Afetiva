@@ -18,21 +18,20 @@
             </div>
             <ul>
                 <li><a href="#inicio">Início</a></li>
-                <li><a href="#produtos">Produtos</a></li>
                 <li><a href="#como-funciona">Como Funciona</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- 2° Seção: Apresentação -->
+    
+    <!-- 3° Seção: Apresentação -->
     <section class="hero">
         <div class="hero-content">
             <h1>Alimentação 100% <span class="highlight">Natural para o seu Pet</span></h1>
             <p>Comida de verdade, balanceada e feita com muito amor. Proporcione mais saúde, vitalidade e alegria para o seu melhor amigo todos os dias.</p>
             <div class="hero-buttons">
                 <button id="btnOrcamento" class="btn btn-primary">Faça seu orçamento</button>
-                <a href="#produtos" class="btn btn-secondary">Ver produtos</a>
             </div>
         </div>
         <div class="hero-image-placeholder">
@@ -40,21 +39,33 @@
         </div>
     </section>
 
-    <!-- 3° Seção: Como Funciona -->
+    <!-- 2° Seção: Como Funciona -->
     <section id="como-funciona">
-        <h2>Como funciona nosso orçamento?</h2>
+        <h2>Como funciona?</h2>
         <div class="passos-grid">
             <div class="passo-card">
-                <h3>1. Avaliação</h3>
-                <p>Nos conte sobre o seu pet: peso, idade, restrições e preferências.</p>
+                <h3>1. Perfil do Pet</h3>
+                <p>Informe peso, idade e restrições. Criamos um perfil detalhado para entender as necessidades nutricionais específicas do seu melhor amigo.</p>
             </div>
             <div class="passo-card">
-                <h3>2. Cardápio</h3>
-                <p>Nossa equipe monta as porções ideais e calcula o valor do pacote.</p>
+                <h3>2. Validação Especializada</h3>
+                <p>Nossa especialista em Nutrição Pet valida cada dieta. Também reproduzimos fielmente cardápios prescritos por outros veterinários.</p>
             </div>
             <div class="passo-card">
-                <h3>3. Entrega Fresquinha</h3>
-                <p>Aprovando o orçamento, preparamos e entregamos direto na sua porta!</p>
+                <h3>3. Ingredientes Selecionados</h3>
+                <p>Usamos apenas ingredientes frescos, naturais e de alta qualidade. Sem conservantes ou corantes, direto da nossa cozinha para a tigela.</p>
+            </div>
+            <div class="passo-card">
+                <h3>4. Variedade de Proteínas</h3>
+                <p>Escolha entre opções de Boi, Frango, Porco ou Peixe. Em breve, teremos também a opção exclusiva de Cordeiro no nosso cardápio.</p>
+            </div>
+            <div class="passo-card">
+                <h3>5. Planejamento Flexível</h3>
+                <p>Você define a frequência! Planejamos as porções de forma semanal, quinzenal ou mensal, de acordo com o que for melhor para sua rotina.</p>
+            </div>
+            <div class="passo-card">
+                <h3>6. Entrega Fresquinha</h3>
+                <p>Produção semanal para garantir o frescor. Após a aprovação do orçamento, entregamos as porções prontas e organizadas direto na sua porta.</p>
             </div>
         </div>
     </section>
@@ -69,34 +80,6 @@
             <div class="diferencial-card">Qualidade Premium</div>
             <div class="diferencial-card">Sempre Fresco</div>
             <div class="diferencial-card">Pets Mais Felizes</div>
-        </div>
-    </section>
-
-    <!-- 5° Seção: Produtos -->
-    <section id="produtos">
-        <h2>Nossas Porções</h2>
-        <div class="produtos-grid">
-            <div class="produto-card">
-                <div class="produto-img-placeholder"><img src="img/dog_p1.jpg" alt=""></div>
-                <div class="produto-info">
-                    <h3>Porção Pequena</h3>
-                    <p>Ideal para cães de pequeno porte e gatos. Embalagens práticas.</p>
-                </div>
-            </div>
-            <div class="produto-card">
-                <div class="produto-img-placeholder"><img src="img/cat_p2.jpg" alt=""></div>
-                <div class="produto-info">
-                    <h3>Porção Média</h3>
-                    <p>Feita sob medida para atender as necessidades de pets de médio porte.</p>
-                </div>
-            </div>
-            <div class="produto-card">
-                <div class="produto-img-placeholder"><img src="img/receita.jpg" alt=""></div>
-                <div class="produto-info">
-                    <h3>Porção Grande</h3>
-                    <p>A quantidade e a energia perfeitas para cães de grande porte.</p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -126,8 +109,11 @@
                 <div class="step step-1 active">
                     <h3>1. Informações do Tutor</h3>
                     <input type="text" id="tutorNome" placeholder="Nome Completo" required>
+                    <input type="text" id="tutorCPF" placeholder="CPF (Apenas números)" required pattern="\d{11}" title="Digite os 11 dígitos do CPF">
                     <input type="tel" id="tutorTelefone" placeholder="WhatsApp" required>
                     <input type="email" id="tutorEmail" placeholder="E-mail (Opcional)">
+                    <input type="text" id="clienteBairro" list="listaBairros" placeholder="Bairro de Entrega (Selecione ou digite)" required autocomplete="off">
+                    <datalist id="listaBairros"></datalist>
                     <button type="button" class="btn btn-primary next-step" style="width: 100%;">Próximo</button>
                 </div>
 
@@ -193,19 +179,14 @@
                         <option value="15">Pacote de 15 dias</option>
                         <option value="30">Pacote de 30 dias</option>
                     </select>
-                    <input type="number" id="petRefeicoes" placeholder="Refeições por dia (Ex: 2)" required min="1">
-                    <select id="freteRegiao" required>
-                        <option value="">Região de Entrega</option>
-                        <option value="10">Até 5 km (R$ 10,00)</option>
-                        <option value="15">Até 10 km (R$ 15,00)</option>
-                        <option value="20">Até 15 km (R$ 20,00)</option>
-                        <option value="25">Até 20 km (R$ 25,00)</option>
-                        <option value="0">Acima de 20 km (Frete sob consulta)</option>
+                    <select id="qtdEntregas" required disabled>
+                        <option value="">Selecione primeiro os Dias do Pacote</option>
                     </select>
+                    <input type="number" id="petRefeicoes" placeholder="Refeições por dia (Ex: 2)" required min="1" max="4">
                     <select id="pagamentoForma" required>
-                        <option value="">Forma de Pagamento</option>
-                        <option value="PIX">PIX</option>
-                        <option value="Cartão">Cartão de Crédito/Débito</option>
+                        <option value="">Formas de Pagamentos</option>
+                        <option value="PIX">PIX (5% De desconto)</option>
+                        <option value="Cartão">Crédito (link de pagamento)</option>
                     </select>
                     <div class="modal-buttons">
                         <button type="button" class="btn btn-secondary prev-step">Voltar</button>
@@ -217,8 +198,8 @@
             <!-- Tela de Resultado -->
             <div id="resultadoOrcamento" style="display: none; text-align: center;">
                 <h3 style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 15px;">Orçamento Gerado!</h3>
-                <div id="resDetalhes" style="background: #f9f9f9; padding: 15px; border-radius: 8px; text-align: left; margin-bottom: 20px;"></div>
-                <h2 id="resValor" style="font-size: 2rem; color: #333; margin-bottom: 20px;"></h2>
+                <h2 id="resValor" style="font-size: 2rem; color: #333; margin-bottom: 10px;"></h2>
+                <p id="resAvisoConsulta" style="color: var(--secondary-color); font-size: 0.95rem; margin-bottom: 20px; display: none; font-weight: 500;">Inclusão de R$ 60,00 referente à Consulta Especializada.</p>
                 <a href="https://wa.me/5581984489552?text=gostaria%20de%20finalizar%20o%20%20meu%20plano" target="_blank" class="btn btn-primary" style="width: 100%; display: block; box-sizing: border-box;" onclick="closeModal()">Concluir e entrar em contato</a>
             </div>
         </div>
