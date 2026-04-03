@@ -331,13 +331,36 @@
             color: var(--secondary-color);
         }
 
-        /* Responsividade Básica */
+        /* --- Responsividade Avançada --- */
+        @media (max-width: 1024px) {
+            .diferenciais-grid, .produtos-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-image-placeholder { height: 400px; }
+        }
+
         @media (max-width: 768px) {
-            .hero { flex-direction: column; text-align: center; padding-top: 100px; }
-            .hero-buttons { justify-content: center; }
+            .hero { flex-direction: column; text-align: center; padding-top: 140px; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero-buttons { flex-direction: column; width: 100%; gap: 15px; }
+            .hero-buttons .btn { width: 100%; }
+            .hero-image-placeholder { width: 100%; height: 350px; margin-top: 20px; }
+            
             .diferenciais-grid, .produtos-grid { grid-template-columns: 1fr; }
-            nav { flex-direction: column; gap: 15px; }
-            nav ul { position: static; transform: none; }
+            
+            nav { flex-direction: column; gap: 15px; padding: 15px 5%; }
+            nav ul { position: static; transform: none; flex-wrap: wrap; justify-content: center; }
+            
+            section { padding: 80px 5% 40px; }
+            h2 { font-size: 1.8rem; margin-bottom: 30px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 { font-size: 1.8rem; }
+            .logo { font-size: 1.2rem; }
+            .logo-image { width: 45px; height: 45px; }
+            
+            .modal-content { padding: 20px; }
+            .modal-buttons { flex-direction: column-reverse; gap: 10px; }
+            .modal-buttons .btn { width: 100%; }
         }
 
         /* --- Estilos do Modal de Orçamento --- */
