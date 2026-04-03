@@ -6,6 +6,22 @@
         const btnsPrev = document.querySelectorAll('.prev-step');
         let currentStep = 0;
 
+        let bairrosData = [];
+
+        // Carregar JSON de bairros para o Autocomplete
+        fetch('cal_dist.json')
+            .then(response => response.json())
+            .then(data => {
+                bairrosData = data.bairros;
+                const datalist = document.getElementById('listaBairros');
+                bairrosData.forEach(b => {
+                    const option = document.createElement('option');
+                    option.value = b.bairro;
+                    datalist.appendChild(option);
+                });
+            })
+            .catch(err => console.error('Erro ao carregar cal_dist.json:', err));
+
         // Abrir Modal
         btnOpen.addEventListener('click', (e) => {
             e.preventDefault();
@@ -70,6 +86,28 @@
             });
         });
 
+        // RN05 - Gerenciar as opções de Quantidade de Entregas baseado no Pacote
+        document.getElementById('petVolume').addEventListener('change', (e) => {
+            const dias = parseInt(e.target.value);
+            const qtdEntregasEl = document.getElementById('qtdEntregas');
+            qtdEntregasEl.innerHTML = '<option value="">Quantidade de Entregas</option>';
+            qtdEntregasEl.disabled = false;
+
+            if (dias === 7) {
+                qtdEntregasEl.innerHTML += '<option value="1">1 Entrega (Pacote total)</option>';
+            } else if (dias === 15) {
+                qtdEntregasEl.innerHTML += '<option value="1">1 Entrega (Pacote total)</option>';
+                qtdEntregasEl.innerHTML += '<option value="2">2 Entregas (1 por semana)</option>';
+            } else if (dias === 30) {
+                qtdEntregasEl.innerHTML += '<option value="1">1 Entrega (Pacote total)</option>';
+                qtdEntregasEl.innerHTML += '<option value="2">2 Entregas (1 a cada 15 dias)</option>';
+                qtdEntregasEl.innerHTML += '<option value="4">4 Entregas (1 por semana)</option>';
+            } else {
+                qtdEntregasEl.innerHTML = '<option value="">Selecione primeiro os Dias do Pacote</option>';
+                qtdEntregasEl.disabled = true;
+            }
+        });
+
         // Processar Regras de Negócios e Calcular
         document.getElementById('formOrcamento').addEventListener('submit', (e) => {
             e.preventDefault();
@@ -82,7 +120,7 @@
             const saude = document.getElementById('petSaude').value;
             const statusPeso = document.getElementById('petStatusPeso').value;
             const refeicoes = parseInt(document.getElementById('petRefeicoes').value);
-            const frete = parseFloat(document.getElementById('freteRegiao').value);
+            const entregas = parseInt(document.getElementById('qtdEntregas').value) || 1;
             const pagamento = document.getElementById('pagamentoForma').value;
 
             // RN01 - Volume da Dieta (4% do peso ao dia)
@@ -115,8 +153,27 @@
             // RN04 - Taxa de Fracionamento
             const taxaFracionamento = (refeicoes > 1) ? ((refeicoes - 1) * 0.20 * dias) : 0;
 
+            // RN05 - Logística e Frete (Cálculo Dinâmico via JSON)
+            const bairroInput = document.getElementById('clienteBairro').value;
+            const bairroEncontrado = bairrosData.find(b => b.bairro.toLowerCase() === bairroInput.toLowerCase());
+            
+            let distancia = bairroEncontrado ? bairroEncontrado.distancia_km : 999;
+            let freteBase = 0;
+            
+            if (bairroEncontrado) {
+                if (distancia <= 5) freteBase = 10.00;
+                else if (distancia <= 10) freteBase = 15.00;
+                else if (distancia <= 15) freteBase = 20.00;
+                else if (distancia <= 20) freteBase = 25.00;
+                else freteBase = 0; // Acima de 20 km = sob consulta
+            } else {
+                freteBase = 0; // Bairro não encontrado = sob consulta
+            }
+
+            const freteTotal = freteBase * entregas;
+
             // RN06 - Formação do Preço Final
-            const valorBase = custoDieta + taxaConsulta + taxaFracionamento + frete;
+            const valorBase = custoDieta + taxaConsulta + taxaFracionamento + freteTotal;
             const precoFinal = (pagamento === "Cartão") ? (valorBase / 0.95) : valorBase; // Matemática: Valor final suporta o desconto de 5% no PIX
 
             // Renderizar Resultados
@@ -125,23 +182,24 @@
 
             const formatBRL = (valor) => `R$ ${valor.toFixed(2).replace('.', ',')}`;
             
-            let detalhesHtml = `<strong>Custo da Alimentação (${dias} dias):</strong> ${formatBRL(custoDieta)}<br>`;
-            if (taxaConsulta > 0) detalhesHtml += `<strong>Consulta Especializada:</strong> ${formatBRL(taxaConsulta)}<br>`;
-            if (taxaFracionamento > 0) detalhesHtml += `<strong>Fracionamento (${refeicoes}x ao dia):</strong> ${formatBRL(taxaFracionamento)}<br>`;
-            
-            const textFrete = document.getElementById('freteRegiao').options[document.getElementById('freteRegiao').selectedIndex].text;
-            detalhesHtml += `<strong>Frete / Logística:</strong> ${frete === 0 ? "Sob consulta" : textFrete}<br><br>`;
-            detalhesHtml += `<strong>Forma de Pagamento:</strong> ${pagamento} ${pagamento === 'PIX' ? '(5% de desconto já aplicado na base)' : ''}`;
-
-            document.getElementById('resDetalhes').innerHTML = detalhesHtml;
             document.getElementById('resValor').innerText = formatBRL(precoFinal);
+
+            // Exibe o aviso se a taxa de consulta foi aplicada
+            const avisoConsultaEl = document.getElementById('resAvisoConsulta');
+            if (taxaConsulta > 0) {
+                avisoConsultaEl.style.display = 'block';
+            } else {
+                avisoConsultaEl.style.display = 'none';
+            }
 
             // --- Geração do arquivo payLoad.json ---
             const payload = {
                 cliente: {
                     nome: document.getElementById('tutorNome').value,
+                    cpf: document.getElementById('tutorCPF').value,
                     whatsapp: document.getElementById('tutorTelefone').value,
-                    email: document.getElementById('tutorEmail').value
+                    email: document.getElementById('tutorEmail').value,
+                    bairro: bairroInput
                 },
                 pet: {
                     nome: document.getElementById('petNome').value,
@@ -158,31 +216,39 @@
                 pedido: {
                     diasPacote: dias,
                     refeicoesPorDia: refeicoes,
-                    regiaoEntregaID: frete,
-                    formaPagamento: pagamento
+                    qtdEntregas: entregas,
+                    freteBase: freteBase,
+                    freteTotal: freteTotal,
+                    formaPagamento: pagamento,
+                    distanciaKm: distancia !== 999 ? distancia : null
                 },
                 orcamento_resultado: {
                     custoBaseDieta: parseFloat(custoDieta.toFixed(2)),
                     taxaConsulta: parseFloat(taxaConsulta.toFixed(2)),
                     taxaFracionamento: parseFloat(taxaFracionamento.toFixed(2)),
-                    taxaFrete: parseFloat(frete.toFixed(2)),
+                    taxaFrete: parseFloat(freteTotal.toFixed(2)),
                     valorTotalFinal: parseFloat(precoFinal.toFixed(2))
                 },
                 dataCriacao: new Date().toISOString()
             };
 
-            // Salvando no "banco de dados" do próprio navegador (F12 -> Application -> Local Storage)
+            // Salvando no "banco de dados" do próprio navegador
+            
             localStorage.setItem('payLoad', JSON.stringify(payload, null, 2));
             console.log("Dados do orçamento armazenados no LocalStorage:", payload);
 
-            // EXEMPLO REAL DE INTEGRAÇÃO: Enviando para um servidor backend que irá sobrescrever o payLoad.json na raiz do projeto
-            /*
-            fetch('http://localhost:3000/salvar-orcamento', {
+            // --- INTEGRAÇÃO COM FORMSPREE ---
+
+            const formspreeUrl = 'https://formspree.io/f/xykbzpga';
+            
+            fetch(formspreeUrl, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json' 
+                },
                 body: JSON.stringify(payload)
             })
-            .then(res => console.log('Arquivo payLoad.json atualizado no servidor com sucesso!'))
-            .catch(err => console.error('Erro ao salvar:', err));
-            */
+            .then(response => console.log('Orçamento enviado para o e-mail com sucesso via Formspree!'))
+            .catch(err => console.error('Erro de conexão ao enviar para o Formspree:', err));
         });
